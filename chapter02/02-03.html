@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="../react-0.14.3/build/react.js"></script>
+    <script src="../react-0.14.3/build/react-dom.js"></script>
+
+    <script>
+        var Component = React.createClass({
+            propTypes: {    //このコンポーネントが受け付けるプロパティを予め宣言できる
+                name: React.PropTypes.string.isRequired,    //このnameプロパティの後につけているのは「文字列が値として渡されるよ」って意味
+            },  //宣言したやつは、いざ表示させようとした時に値の記述とかを省略したら警告が飛んでくる
+            //propTypes
+            render: function() {
+                return React.DOM.span(null, "私は" + this.props.name + "です");
+            }
+        });
+
+        ReactDOM.render(
+            React.createElement(Component,{
+                //name: "ボブ",
+            }),
+            document.getElementById("app")  //これだと"私はundefinedです"ってなってコンソールに警告が出る
+        );
+    </script>
+        
+</body>
+</html>
