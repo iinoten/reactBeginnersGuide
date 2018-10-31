@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app"></div>
+        <script src="../react-0.14.3/build/react.js"></script>
+        <script src="../react-0.14.3/build/react-dom.js"></script>
+
+        <script>
+            
+            var TextAreaCounter = React.createClass({
+                getInitialState() {
+                    return {
+                        text: this.props.text,
+                    };
+                },
+                propTypes: {
+                    text: React.PropTypes.string,
+                },
+                _textChange: function(ev) {
+                    this.setState({
+                        text: ev.target.value,
+                    });
+                },
+                getDefaultProps: function() {
+                    return {
+                        text: "",
+                    };
+                },
+                render:function() {
+                    return React.DOM.div(null,
+                    React.DOM.textarea({
+                        value: this.state.text,
+                        onChange: this._textChange,
+                    }),
+                    React.DOM.h3(null, this.state.text.length)
+                    );
+                }
+            });
+            ReactDOM.render(
+                React.createElement(TextAreaCounter, {
+                    text: "ボブ",
+                }),
+                document.getElementById("app")
+            );
+
+        </script>
+</body>
+</html>
