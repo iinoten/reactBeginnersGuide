@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent">
+        <button id="ok">OK</button>
+        <button id="cancel">キャンセル</button>
+    </div>
+
+    <div id="app"></div>
+    <script src="../react-0.14.3/build/react.js"></script>
+    <script src="../react-0.14.3/build/react-dom.js"></script>
+
+    <script>
+        document.getElementById("parent").addEventListener('click',function(event) {    //イベントの委譲？を行ってる
+            var button = event.target;
+            switch(button.id) {
+                case "ok":
+                    console.log('OK!');
+                    break;
+                case 'cancel':
+                    console.log('キャンセル');
+                    break;
+                default:
+                    new Error('不正なIDです');
+            };
+        });
+    </script>
+</body>
+</html>
