@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="app"></div>
+        <script src="../react-0.14.3/build/react.js"></script>
+        <script src="../react-0.14.3/build/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+        <script type="text/babel">
+        var firstname = 'ジョン<script src="https://twitter.com/"></scrpt>';//変なことを記述しようとしても、一度React側で
+            //すべての文字列がエスケープされるため、XSS対策ができる
+            ReactDOM.render(
+                <h2>{firstname}</h2>,   //ジョン<script src="https://twitter.com/"></scrpt>って出る
+                document.getElementById("app")
+            );
+        </script>
+</body>
+</html>

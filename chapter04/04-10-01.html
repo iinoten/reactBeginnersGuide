@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <FancyLynk
+        href="https://my.moqups.com/login"
+        target="_brank"
+        size="midium">Hello</FancyLynk>
+    <script src="../react-0.14.3/build/react.js"></script>
+    <script src="../react-0.14.3/build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
+    <script type="text/babel">
+        var FancyLynk = React.createClass({
+            render: function() {
+                switch(this.props.size) {
+                    //処理
+                }
+                return <a {...this.props}>{this.props.children}</a>
+            }
+        });
+    </script>
+    
+</body>
+</html>
