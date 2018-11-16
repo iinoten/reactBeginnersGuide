@@ -4,21 +4,39 @@ import './App.css';
 import Title from './components/Title.js';
 
 class App extends Component {
+
+  // イベントハンドラー
+  onClickHandler = () => {
+
+    // 「Hello World」のh2タグをここで取得
+    let title = document.getElementById('versionStatement');
+
+    // 「upgrade」のpタグをここで取得
+    let upgradeButton = document.getElementById('upgradeButton');
+
+    // 取得したh２タグのテキストを変更
+    title.textContent = "4.0";
+
+    // 取得したpタグを非表示にする。
+    upgradeButton.style.display = "none";
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <Title />
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+
+          
+          <Title
+            title="Hello World 3.0"
+            titleStyle={{color: 'orange'}}
+            onClick={this.onClickHandler}
+          />
         </header>
+        <p className="App-intro">
+          To get started, edit <code>src/App.js</code> and save to reload.
+        </p>
       </div>
     );
   }
